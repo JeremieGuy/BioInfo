@@ -36,7 +36,7 @@ def makeFile(data):
         for i in indices:
             line = genesLine[i] + "," + annotations[i][3:]
             for gene in genes:
-                line += "," + str(data[genes[0]].values[i])
+                line += "," + str(data[gene].values[i])
             out.write(line + "\n")
            
     out.close()
