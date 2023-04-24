@@ -26,7 +26,7 @@ def makeFile(data):
 
     indices = [i for i in range(len(data[genes[0]].values))]
 
-    with open("interractions.csv", "w") as out:
+    with open("interractions2.csv", "w") as out:
         stringGenes = ""
         for gene in genes: 
             stringGenes += gene + ","
@@ -36,7 +36,10 @@ def makeFile(data):
         for i in indices:
             line = genesLine[i] + "," + annotations[i][3:]
             for gene in genes:
-                line += "," + str(data[gene].values[i])
+                if math.isnan(data[gene].values[i]):
+                    line += "," + str(0)
+                else : 
+                    line += "," + str(data[gene].values[i])
             out.write(line + "\n")
            
     out.close()
